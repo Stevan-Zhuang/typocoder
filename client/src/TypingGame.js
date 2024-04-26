@@ -13,7 +13,10 @@ function TypingGame() {
 
   function handleInputChange(event) {
     setUserInput(event.target.value);
-    if (event.target.value === currentWord) {
+  }
+
+  function handleKeyPress(event) {
+    if (event.key === 'Enter' && userInput === currentWord) {
       setScore(score + 1);
       setCurrentWord(getRandomWord());
       setUserInput('');
@@ -30,7 +33,7 @@ function TypingGame() {
     <div>
       <p>Score: {score}</p>
       <p>Type this word: {currentWord}</p>
-      <input value={userInput} onChange={handleInputChange} />
+      <input value={userInput} onChange={handleInputChange} onKeyPress={handleKeyPress} />
       <button onClick={resetGame}>Reset</button>
     </div>
   );
