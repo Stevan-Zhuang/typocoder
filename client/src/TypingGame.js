@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-
-const words = ['apple', 'banana', 'cherry', 'date', 'elderberry'];
+import React, { useState } from "react";
 
 function TypingGame() {
-  const [currentWord, setCurrentWord] = useState(getRandomWord());
-  const [userInput, setUserInput] = useState('');
+  const [currentLines, setCurrentLines] = useState(getCodeLines());
+  const [userInput, setUserInput] = useState("");
   const [score, setScore] = useState(0);
 
-  function getRandomWord() {
-    return words[Math.floor(Math.random() * words.length)];
+  function getCodeLines() {
+    // TODO: remove hardcoded lines
+    const lines = "The quick\nbrown fox\njumps over\nthe lazy\ndog";
+    return lines.split("\n");
   }
 
   function handleInputChange(event) {
@@ -16,25 +16,22 @@ function TypingGame() {
   }
 
   function handleKeyPress(event) {
-    if (event.key === 'Enter' && userInput === currentWord) {
+    if (event.key === "Enter" && userInput === currentLines[0]) {
       setScore(score + 1);
-      setCurrentWord(getRandomWord());
-      setUserInput('');
+      setCurrentLines(currentLines.slice(1));
+      setUserInput("");
     }
-  }
-
-  function resetGame() {
-    setCurrentWord(getRandomWord());
-    setUserInput('');
-    setScore(0);
   }
 
   return (
     <div>
       <p>Score: {score}</p>
-      <p>Type this word: {currentWord}</p>
-      <input value={userInput} onChange={handleInputChange} onKeyPress={handleKeyPress} />
-      <button onClick={resetGame}>Reset</button>
+      <p>Type this: {currentLines[0]}</p>
+      <input
+        value={userInput}
+        onChange={handleInputChange}
+        onKeyPress={handleKeyPress}
+      />
     </div>
   );
 }
