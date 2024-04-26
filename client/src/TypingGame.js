@@ -4,7 +4,6 @@ function TypingGame() {
   const [currentLines, setCurrentLines] = useState(getCodeLines());
   const [nextLines, setNextLines] = useState(getCodeLines());
   const [userInput, setUserInput] = useState("");
-  const [score, setScore] = useState(0);
 
   function getCodeLines() {
     // TODO: remove hardcoded lines
@@ -23,7 +22,6 @@ function TypingGame() {
   }
 
   function completeLine() {
-    setScore(score + 1);
     setCurrentLines(currentLines.slice(1));
     if (currentLines.length === 1) {
       setCurrentLines(nextLines);
@@ -34,7 +32,6 @@ function TypingGame() {
 
   return (
     <div>
-      <p>Score: {score}</p>
       <p>Type this: {currentLines[0]}</p>
       <input
         value={userInput}
