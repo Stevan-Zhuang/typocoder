@@ -18,14 +18,18 @@ function TypingGame() {
 
   function handleKeyPress(event) {
     if (event.key === "Enter" && userInput === currentLines[0]) {
-      setScore(score + 1);
-      setCurrentLines(currentLines.slice(1));
-      if (currentLines.length === 1) {
-        setCurrentLines(nextLines);
-        setNextLines(getCodeLines());
-      }
-      setUserInput("");
+      completeLine();
     }
+  }
+
+  function completeLine() {
+    setScore(score + 1);
+    setCurrentLines(currentLines.slice(1));
+    if (currentLines.length === 1) {
+      setCurrentLines(nextLines);
+      setNextLines(getCodeLines());
+    }
+    setUserInput("");
   }
 
   return (
