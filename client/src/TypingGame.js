@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 function TypingGame() {
   const [currentLines, setCurrentLines] = useState(getCodeLines());
+  const [nextLines, setNextLines] = useState(getCodeLines());
   const [userInput, setUserInput] = useState("");
   const [score, setScore] = useState(0);
 
@@ -19,6 +20,10 @@ function TypingGame() {
     if (event.key === "Enter" && userInput === currentLines[0]) {
       setScore(score + 1);
       setCurrentLines(currentLines.slice(1));
+      if (currentLines.length === 1) {
+        setCurrentLines(nextLines);
+        setNextLines(getCodeLines());
+      }
       setUserInput("");
     }
   }
