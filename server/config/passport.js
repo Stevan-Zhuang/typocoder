@@ -9,25 +9,21 @@ passport.use(
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: "/auth/google/callback",
     },
-    function(accessToken, refreshToken, profile, cb) {
-      User.findOne({ googleId: profile.id }, function(err, user) {
-        if (err) {
-          return cb(err);
-        }
+    async function(accessToken, refreshToken, profile, cb) {
+      try {
+        let user = await User.findOne({ googleId: profile.id });
         if (!user) {
           user = new User({
             googleId: profile.id,
             name: profile.displayName,
             email: profile.emails[0].value,
           });
-          user.save(function(err) {
-            if (err) console.log(err);
-            return cb(err, user);
-          });
-        } else {
-          return cb(err, user);
+          await user.save();
         }
-      });
+        return cb(null, user);
+      } catch (err) {
+        return cb(err);
+      }
     },
   ),
 );
