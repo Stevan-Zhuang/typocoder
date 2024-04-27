@@ -2,7 +2,7 @@ import React from "react";
 
 class SignInButton extends React.Component {
   handleSignIn = () => {
-    window.location.href = "/auth/google";
+    window.location.href = process.env.REACT_APP_AUTH_URL;
   };
 
   render() {
