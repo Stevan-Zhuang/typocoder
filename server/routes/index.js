@@ -1,4 +1,3 @@
-const express = require('express');
 const authRouter = require('./auth');
 
 const setupRoutes = (app) => {
