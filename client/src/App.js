@@ -8,7 +8,9 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch(process.env.REACT_APP_BACKEND_URL + "/auth/session")
+    fetch(process.env.REACT_APP_BACKEND_URL + "/auth/session", {
+      credentials: "include",
+    })
       .then((response) => response.json())
       .then((data) => {
         setUser(data.user);
