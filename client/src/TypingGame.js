@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TextDisplay from "./TextDisplay";
 
 function TypingGame() {
   const [currentLines, setCurrentLines] = useState(getCodeLines());
@@ -32,10 +33,7 @@ function TypingGame() {
 
   return (
     <div>
-      <p>Type these:</p>
-      {currentLines.map((line, index) => (
-        <p key={index}>{line}</p>
-      ))}
+      <TextDisplay lines={currentLines} />
       <input
         value={userInput}
         onChange={handleInputChange}
