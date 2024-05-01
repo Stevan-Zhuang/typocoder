@@ -8,7 +8,7 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch(process.env.BACKEND_URL + "/auth/session")
+    fetch(process.env.REACT_APP_BACKEND_URL + "/auth/session")
       .then((response) => response.json())
       .then((data) => {
         setUser(data.user);
