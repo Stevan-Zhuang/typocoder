@@ -1,13 +1,11 @@
 import React from "react";
 
-class SignInButton extends React.Component {
-  handleSignIn = () => {
+const SignInButton = () => {
+  const handleSignIn = () => {
     window.location.href = process.env.REACT_APP_AUTH_URL;
   };
 
-  render() {
-    return <button onClick={this.handleSignIn}>Sign in with Google</button>;
-  }
-}
+  return <button onClick={handleSignIn}>Sign in with Google</button>;
+};
 
 export default SignInButton;
