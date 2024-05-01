@@ -32,7 +32,10 @@ function TypingGame() {
 
   return (
     <div>
-      <p>Type this: {currentLines[0]}</p>
+      <p>Type these:</p>
+      {currentLines.map((line, index) => (
+        <p key={index}>{line}</p>
+      ))}
       <input
         value={userInput}
         onChange={handleInputChange}
