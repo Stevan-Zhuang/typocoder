@@ -13,10 +13,13 @@ function App() {
     })
       .then((response) => response.json())
       .then((data) => {
+        if (!data.user) {
+          return setUser(null);
+        }
         setUser(data.user);
       })
       .catch((error) => {
-        setUser(null);
+        console.error(error);
       });
   }, []);
 
