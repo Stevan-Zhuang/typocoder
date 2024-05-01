@@ -2,7 +2,6 @@ const express = require("express");
 const connectDB = require("./config/db");
 const setupMiddleware = require("./middleware");
 const { setupPassport } = require("./config/passport");
-const authRouter = require("./routes/auth");
 const setupRoutes = require("./routes");
 
 const app = express();
