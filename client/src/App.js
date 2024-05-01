@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TypingGame from "./TypingGame";
-import SignInButton from "./SignInButton";
-import SignOutButton from "./SignOutButton";
-import UserDisplay from "./UserDisplay";
+import Header from "./Header";
 import { UserContext } from "./UserContext";
 
 function App() {
@@ -26,9 +24,8 @@ function App() {
 
   return (
     <UserContext.Provider value={user}>
+      <Header user={user} />
       <TypingGame />
-      {user ? <SignOutButton /> : <SignInButton />}
-      <UserDisplay />
     </UserContext.Provider>
   );
 }
