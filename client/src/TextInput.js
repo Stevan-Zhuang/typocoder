@@ -1,4 +1,5 @@
 import React from 'react';
+import './TextInput.css';
 
 function TextInput({ value, onChange, onKeyPress, expectedText }) {
   const style = {
@@ -7,6 +8,7 @@ function TextInput({ value, onChange, onKeyPress, expectedText }) {
 
   return (
     <input
+      className="textInput"
       value={value}
       onChange={onChange}
       onKeyPress={onKeyPress}
