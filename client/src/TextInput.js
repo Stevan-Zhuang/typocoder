@@ -2,7 +2,7 @@ import React from 'react';
 
 function TextInput({ value, onChange, onKeyPress, expectedText }) {
   const style = {
-    color: [...value].every(char => expectedText.includes(char)) ? 'black' : 'red'
+    color: expectedText.startsWith(value) ? 'black' : 'red'
   };
 
   return (
