@@ -1,11 +1,20 @@
 .textInput {
-  color: black;
-  background-color: #FFFFFF;
-  border: 1px solid #CCCCCC;
-  border-radius: 4px;
-  padding: 10px;
   font-size: 16px;
   font-family: monospace;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   width: 100%;
   box-sizing: border-box;
+  margin-bottom: 10px;
+  transition: border-color 0.3s ease;
+}
+
+.textInput:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.textInput[style*="color: red"] {
+  border-color: #ff0000;
 }
