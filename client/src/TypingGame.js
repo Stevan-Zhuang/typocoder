@@ -4,6 +4,7 @@ import TextDisplay from "./TextDisplay";
 function TypingGame() {
   const [currentLines, setCurrentLines] = useState(getCodeLines());
   const [nextLines, setNextLines] = useState(getCodeLines());
+  const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [userInput, setUserInput] = useState("");
 
   function getCodeLines() {
@@ -18,16 +19,18 @@ function TypingGame() {
   }
 
   function handleKeyPress(event) {
-    if (event.key === "Enter" && userInput === currentLines[0]) {
+    if (event.key === "Enter" && userInput === currentLines[currentLineIndex]) {
       completeLine();
     }
   }
 
   function completeLine() {
-    setCurrentLines(currentLines.slice(1));
-    if (currentLines.length === 1) {
+    if (currentLineIndex < currentLines.length - 1) {
+      setCurrentLineIndex(currentLineIndex + 1);
+    } else {
       setCurrentLines(nextLines);
       setNextLines(getCodeLines());
+      setCurrentLineIndex(0);
     }
     setUserInput("");
   }
