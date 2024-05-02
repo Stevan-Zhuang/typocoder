@@ -8,7 +8,8 @@ function TypingGame() {
 
   function getCodeLines() {
     // TODO: remove hardcoded lines
-    const lines = "The quick\nbrown fox\njumps over\nthe lazy\ndog";
+    const lines =
+      "let x = 5;\nconsole.log(x);\nlet y = 10;\nconsole.log(y);\nlet z = x + y;\nconsole.log(z);";
     return lines.split("\n");
   }
 
