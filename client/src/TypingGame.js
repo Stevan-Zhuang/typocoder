@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TextDisplay from "./TextDisplay";
+import TextInput from "./TextInput";
 
 function TypingGame() {
   const [currentLines, setCurrentLines] = useState(getCodeLines());
@@ -51,7 +52,7 @@ function TypingGame() {
         lineIndex={currentLineIndex}
         cursorPosition={getCursorPosition()}
       />
-      <input
+      <TextInput
         value={userInput}
         onChange={handleInputChange}
         onKeyPress={handleKeyPress}
