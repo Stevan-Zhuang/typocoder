@@ -43,6 +43,7 @@ function TypingGame() {
         value={userInput}
         onChange={handleInputChange}
         onKeyPress={handleKeyPress}
+        expectedText={currentLines[currentLineIndex]}
       />
     </div>
   );
