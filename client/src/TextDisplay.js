@@ -2,7 +2,7 @@ import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { solarizedlight } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-function TextDisplay({ lines, lineIndex, cursorPosition }) {
+function TextDisplay({ lines, lineIndex }) {
   const codeString = lines
     .map((line, index) => index < lineIndex ? '// ' + line : line )
     .join("\n");

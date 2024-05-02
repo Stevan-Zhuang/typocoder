@@ -36,22 +36,9 @@ function TypingGame() {
     setUserInput("");
   }
 
-  function getCursorPosition() {
-    const currentLine = currentLines[currentLineIndex];
-    let cursorPosition = 0;
-    while (cursorPosition < userInput.length && userInput[cursorPosition] === currentLine[cursorPosition]) {
-      cursorPosition++;
-    }
-    return cursorPosition;
-  }
-
   return (
     <div>
-      <TextDisplay
-        lines={currentLines}
-        lineIndex={currentLineIndex}
-        cursorPosition={getCursorPosition()}
-      />
+      <TextDisplay lines={currentLines} lineIndex={currentLineIndex} />
       <TextInput
         value={userInput}
         onChange={handleInputChange}
