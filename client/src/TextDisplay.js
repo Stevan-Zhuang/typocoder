@@ -1,6 +1,6 @@
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { solarizedlight } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 function TextDisplay({ lines, lineIndex }) {
   const codeString = lines
@@ -11,7 +11,7 @@ function TextDisplay({ lines, lineIndex }) {
     <div style={{ fontFamily: "monospace" }}>
       <SyntaxHighlighter
         language="javascript"
-        style={solarizedlight}
+        style={oneLight}
         showLineNumbers={true}
       >
         {codeString}
