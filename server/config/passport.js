@@ -1,6 +1,7 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const User = require("../models/User");
+const UserSettings = require("../models/UserSettings");
 
 const setupPassport = (app) => {
   app.use(passport.initialize());
@@ -19,7 +20,7 @@ const setupPassport = (app) => {
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         callbackURL: "/auth/google/callback",
       },
-      async function (accessToken, refreshToken, profile, cb) {
+      async function(accessToken, refreshToken, profile, cb) {
         try {
           let user = await User.findOne({ googleId: profile.id });
           if (!user) {
@@ -29,6 +30,13 @@ const setupPassport = (app) => {
               email: profile.emails[0].value,
             });
             await user.save();
+
+            const userSettings = new UserSettings({
+              userId: user._id,
+              theme: "oneLight",
+              language: "en",
+            });
+            await userSettings.save();
           }
           return cb(null, user);
         } catch (err) {
