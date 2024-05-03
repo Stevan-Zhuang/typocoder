@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { FaCog } from 'react-icons/fa'; // This is the gear icon from react-icons
+import { FaCog } from "react-icons/fa";
+import '../styles/SettingsPopup.css';
 
 const SettingsPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,17 +12,8 @@ const SettingsPopup = () => {
   return (
     <div>
       <FaCog onClick={togglePopup} />
+      <FaCog className="settings-icon" onClick={togglePopup} />
       {isOpen && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          right: 0,
-          width: '20%',
-          height: '100%',
-          backgroundColor: 'lightgrey',
-          overflow: 'auto',
-          padding: '1em',
-        }}>
           {/* Your settings form goes here */}
         </div>
       )}
