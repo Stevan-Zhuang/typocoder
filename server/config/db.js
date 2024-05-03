@@ -5,7 +5,7 @@ const uri = process.env.MONGODB_URL;
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    await mongoose.connect(uri);
     console.log("MongoDB Connected...");
   } catch (err) {
     console.log(err);
