@@ -43,7 +43,7 @@ function App() {
   return (
     <UserContext.Provider value={user}>
       <SettingsContext.Provider value={settings}>
-        <Header user={user} />
+        <Header user={user} setSettings={setSettings}/>
         <TypingGame />
       </SettingsContext.Provider>
     </UserContext.Provider>
