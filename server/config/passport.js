@@ -33,7 +33,7 @@ const setupPassport = (app) => {
 
             const userSettings = new UserSettings({
               userId: user._id,
-              theme: "oneLight",
+              theme: "light",
               language: "en",
             });
             await userSettings.save();

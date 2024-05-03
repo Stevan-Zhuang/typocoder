@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import TypingGame from "./TypingGame";
 import Header from "./Header";
 import { UserContext } from "../contexts/UserContext";
+import { SettingsContext } from "../contexts/SettingsContext";
 
 function App() {
   const [user, setUser] = useState(null);
-  const [settings, setSettings] = useState(null);
+  const [settings, setSettings] = useState({});
 
   useEffect(() => {
     fetch(process.env.REACT_APP_BACKEND_URL + "/auth/session", {
@@ -36,8 +37,10 @@ function App() {
 
   return (
     <UserContext.Provider value={user}>
-      <Header user={user} />
-      <TypingGame settings={settings}/>
+      <SettingsContext.Provider value={settings}>
+        <Header user={user} />
+        <TypingGame />
+      </SettingsContext.Provider>
     </UserContext.Provider>
   );
 }
