@@ -8,9 +8,9 @@ import "../styles/Header.css";
 function Header({ user, setSettings }) {
   return (
     <header className="header">
-      <UserDisplay />
+      <UserDisplay user={user} />
       {user ? <SignOutButton /> : <SignInButton />}
-      <SettingsPopup setSettings={setSettings}/>
+      <SettingsPopup setSettings={setSettings} />
     </header>
   );
 }

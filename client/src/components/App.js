@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TypingGame from "./TypingGame";
 import Header from "./Header";
-import { UserContext } from "../contexts/UserContext";
 import { SettingsContext } from "../contexts/SettingsContext";
 
 function App() {
@@ -21,8 +20,9 @@ function App() {
         }
 
         fetch(
-          process.env.REACT_APP_BACKEND_URL + "/settings/" + (userData._id ||
-          "default"),
+          process.env.REACT_APP_BACKEND_URL +
+          "/settings/" +
+          (userData._id || "default"),
           {
             credentials: "include",
           },
@@ -41,12 +41,10 @@ function App() {
   }, []);
 
   return (
-    <UserContext.Provider value={user}>
-      <SettingsContext.Provider value={settings}>
-        <Header user={user} setSettings={setSettings}/>
-        <TypingGame />
-      </SettingsContext.Provider>
-    </UserContext.Provider>
+    <SettingsContext.Provider value={settings}>
+      <Header user={user} setSettings={setSettings} />
+      <TypingGame />
+    </SettingsContext.Provider>
   );
 }
 
