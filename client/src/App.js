@@ -12,10 +12,10 @@ function App() {
     })
       .then((response) => response.json())
       .then((data) => {
-        if (!data.user) {
+        if (!data._id) {
           return setUser(null);
         }
-        setUser(data.user);
+        setUser(data);
       })
       .catch((error) => {
         console.error(error);

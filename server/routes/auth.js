@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { passport } = require("../config/passport");
+const User = require('../models/User');
 
 router.get(
   "/google",
@@ -22,11 +23,20 @@ router.get(
   },
 );
 
-router.get("/session", (req, res) => {
+router.get("/session", async (req, res) => {
   if (!req.session.user) {
     return res.json({ user: null });
   }
-  res.json({ user: req.session.user });
+  try {
+    console.log(req.session.user);
+    const user = await User.findOne({ googleId: req.session.user.googleId });
+    if (!user) {
+      return res.status(404).json({ message: 'No user found with this googleId' });
+    }
+    res.json(user);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 });
 
 router.get("/signout", (req, res) => {
