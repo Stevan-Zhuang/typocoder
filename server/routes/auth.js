@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { passport } = require("../config/passport");
-const User = require('../models/User');
+const User = require("../models/User");
 
 router.get(
   "/google",
@@ -11,7 +11,7 @@ router.get(
 router.get(
   "/google/callback",
   passport.authenticate("google", { failureRedirect: "/login" }),
-  function (req, res) {
+  function(req, res) {
     req.session.user = req.user;
     req.session.save((err) => {
       if (err) {
@@ -30,7 +30,9 @@ router.get("/session", async (req, res) => {
   try {
     const user = await User.findOne({ googleId: req.session.user.googleId });
     if (!user) {
-      return res.status(404).json({ message: 'No user found with this googleId' });
+      return res
+        .status(500)
+        .json({ message: "No user found with this googleId" });
     }
     res.json(user);
   } catch (err) {
