@@ -21,4 +21,22 @@ router.get("/:userId", async (req, res) => {
   }
 });
 
+router.put("/:userId", async (req, res) => {
+  try {
+    const updatedSettings = await UserSettings.findOneAndUpdate(
+      { userId : req.params.userId },
+      req.body,
+      { new: true },
+    );
+    if (!updatedSettings) {
+      return res
+        .status(404)
+        .json({ message: "No settings found for this user" });
+    }
+    res.json(updatedSettings);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 module.exports = router;

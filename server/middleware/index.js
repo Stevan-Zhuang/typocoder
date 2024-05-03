@@ -1,8 +1,11 @@
+const express = require("express");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const cors = require("cors");
 
 const setupMiddleware = (app) => {
+  app.use(express.json());
+
   app.use(
     cors({
       origin: process.env.FRONTEND_URL,
