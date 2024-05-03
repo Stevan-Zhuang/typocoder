@@ -25,7 +25,7 @@ const setupMiddleware = (app) => {
         sameSite: "none",
         secure: false,
         httpOnly: true,
-        maxAge: 60000,
+        maxAge: 30 * 24 * 60 * 60 * 1000,
       },
     }),
   );
