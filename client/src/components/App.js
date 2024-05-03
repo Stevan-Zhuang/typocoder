@@ -21,8 +21,8 @@ function App() {
         }
 
         fetch(
-          process.env.REACT_APP_BACKEND_URL + "/settings/" + userData._id ||
-          "/default/",
+          process.env.REACT_APP_BACKEND_URL + "/settings/" + (userData._id ||
+          "default"),
           {
             credentials: "include",
           },
