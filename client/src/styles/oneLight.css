@@ -1,0 +1,14 @@
+:root {
+  --background: #fafafa;
+  --currentLine: #f0f0f0;
+  --selection: #d7d7d7;
+  --foreground: #383a42;
+  --comment: #a0a1a7;
+  --cyan: #0184bc;
+  --green: #50a14f;
+  --orange: #c18401;
+  --pink: #a626a4;
+  --purple: #a626a4;
+  --red: #e45649;
+  --yellow: #9868;
+}

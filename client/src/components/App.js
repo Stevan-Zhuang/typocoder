@@ -30,6 +30,13 @@ function App() {
           .then((response) => response.json())
           .then((settingsData) => {
             setSettings(settingsData);
+
+            import(`../styles/${settingsData.theme}.css`).catch((error) => {
+              console.error(
+                `Error loading theme: ${settingsData.theme}`,
+                error,
+              );
+            });
           })
           .catch((error) => {
             console.error(error);

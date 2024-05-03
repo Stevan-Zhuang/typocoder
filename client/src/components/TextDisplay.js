@@ -9,8 +9,8 @@ import {
 import { SettingsContext } from "../contexts/SettingsContext";
 
 const themeMap = {
-  light: oneLight,
-  dark: oneDark,
+  oneLight: oneLight,
+  oneDark: oneDark,
   solarizedLight: solarizedlight,
   dracula: dracula,
 };

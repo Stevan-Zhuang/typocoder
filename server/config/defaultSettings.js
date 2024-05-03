@@ -1,4 +1,4 @@
 module.exports = {
-  theme: "light",
+  theme: "oneLight",
   language: "en",
 };

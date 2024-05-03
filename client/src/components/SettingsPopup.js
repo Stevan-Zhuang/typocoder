@@ -49,8 +49,8 @@ function SettingsPopup({ setSettings }) {
                 value={settings.theme}
                 onChange={handleInputChange}
               >
-                <option value="light">Light</option>
-                <option value="dark">Dark</option>
+                <option value="oneLight">Light</option>
+                <option value="oneDark">Dark</option>
               </select>
             </label>
             <label>
