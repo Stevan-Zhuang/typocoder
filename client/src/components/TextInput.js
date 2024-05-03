@@ -3,7 +3,7 @@ import '../styles/TextInput.css';
 
 function TextInput({ value, onChange, onKeyPress, expectedText }) {
   const style = {
-    color: expectedText.startsWith(value) ? 'black' : 'red'
+    color: expectedText.startsWith(value) ? 'var(--foreground)' : 'var(--red)'
   };
 
   return (

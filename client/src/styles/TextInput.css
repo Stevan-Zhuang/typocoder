@@ -1,4 +1,5 @@
 .textInput {
+  background-color: var(--background);
   font-size: 16px;
   font-family: monospace;
   padding: 10px;
@@ -11,10 +12,10 @@
 }
 
 .textInput:focus {
-  border-color: #007bff;
+  border-color: var(--cyan);
   outline: none;
 }
 
-.textInput[style*="color: red"] {
-  border-color: #ff0000;
+.textInput[style*="color: var(--red)"] {
+  border-color: var(--red);
 }
