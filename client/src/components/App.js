@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TypingGame from "./TypingGame";
 import Header from "./Header";
-import { UserContext } from "./UserContext";
+import { UserContext } from "../contexts/UserContext";
 
 function App() {
   const [user, setUser] = useState(null);

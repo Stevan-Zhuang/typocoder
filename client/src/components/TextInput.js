@@ -1,5 +1,5 @@
 import React from 'react';
-import './TextInput.css';
+import '../styles/TextInput.css';
 
 function TextInput({ value, onChange, onKeyPress, expectedText }) {
   const style = {
