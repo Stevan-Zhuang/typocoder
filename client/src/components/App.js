@@ -15,9 +15,10 @@ function App() {
       .then((response) => response.json())
       .then((userData) => {
         if (!userData._id) {
-          return setUser(null);
+          setUser(null);
+        } else {
+          setUser(userData);
         }
-        setUser(userData);
 
         fetch(
           process.env.REACT_APP_BACKEND_URL + "/settings/" + userData._id ||
