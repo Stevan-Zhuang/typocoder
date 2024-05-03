@@ -31,7 +31,7 @@ router.get("/session", async (req, res) => {
     const user = await User.findOne({ googleId: req.session.user.googleId });
     if (!user) {
       return res
-        .status(500)
+        .status(404)
         .json({ message: "No user found with this googleId" });
     }
     res.json(user);
