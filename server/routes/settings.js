@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const UserSettings = require("../models/UserSettings");
+const defaultSettings = require("../config/defaultSettings");
 
 router.get("/:userId", async (req, res) => {
   try {
@@ -14,6 +15,10 @@ router.get("/:userId", async (req, res) => {
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
+});
+
+router.get("/default/", (req, res) => {
+  res.json(defaultSettings);
 });
 
 module.exports = router;

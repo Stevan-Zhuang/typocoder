@@ -19,9 +19,13 @@ function App() {
         }
         setUser(userData);
 
-        fetch(process.env.REACT_APP_BACKEND_URL + "/settings/" + userData._id, {
-          credentials: "include",
-        })
+        fetch(
+          process.env.REACT_APP_BACKEND_URL + "/settings/" + userData._id ||
+          "/default/",
+          {
+            credentials: "include",
+          },
+        )
           .then((response) => response.json())
           .then((settingsData) => {
             setSettings(settingsData);
