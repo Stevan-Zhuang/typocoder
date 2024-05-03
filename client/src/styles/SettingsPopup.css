@@ -1,0 +1,14 @@
+.settings-icon {
+  cursor: pointer;
+}
+
+.settings-popup {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  background-color: lightgrey;
+  overflow: auto;
+  padding: 1em;
+}
