@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { SettingsContext } from "../contexts/SettingsContext";
 import { FaCog } from "react-icons/fa";
-import { importTheme } from "../utils";
 import "../styles/SettingsPopup.css";
 
 function SettingsPopup({ setSettings }) {
@@ -18,7 +17,6 @@ function SettingsPopup({ setSettings }) {
       [event.target.name]: event.target.value,
     };
     setSettings(newSettings);
-    importTheme(newSettings.theme);
 
     if (newSettings.userId) {
       fetch(

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import TypingGame from "./TypingGame";
 import Header from "./Header";
 import { SettingsContext } from "../contexts/SettingsContext";
-import { importTheme } from "../utils";
+import "../styles/App.css";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -32,7 +32,6 @@ function App() {
           .then((response) => response.json())
           .then((settingsData) => {
             setSettings(settingsData);
-            importTheme(settingsData.theme);
             setLoading(false);
           })
           .catch((error) => {
@@ -49,10 +48,12 @@ function App() {
   }
 
   return (
-    <SettingsContext.Provider value={settings}>
-      <Header user={user} setSettings={setSettings} />
-      <TypingGame />
-    </SettingsContext.Provider>
+    <div className={`App ${settings.theme}`}>
+      <SettingsContext.Provider value={settings}>
+        <Header user={user} setSettings={setSettings} />
+        <TypingGame />
+      </SettingsContext.Provider>
+    </div>
   );
 }
 

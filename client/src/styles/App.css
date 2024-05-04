@@ -1,0 +1,59 @@
+.dracula {
+  --background: #282a36;
+  --currentLine: #44475a;
+  --selection: #44475a;
+  --foreground: #f8f8f2;
+  --comment: #6272a4;
+  --cyan: #8be9fd;
+  --green: #50fa7b;
+  --orange: #ffb86c;
+  --pink: #ff79c6;
+  --purple: #bd93f9;
+  --red: #ff5555;
+  --yellow: #f1fa8c;
+}
+
+.oneDark {
+  --background: #282c34;
+  --currentLine: #353b45;
+  --selection: #3e4451;
+  --foreground: #abb2bf;
+  --comment: #5c6370;
+  --cyan: #56b6c2;
+  --green: #98c379;
+  --orange: #d19a66;
+  --pink: #e06c75;
+  --purple: #c678dd;
+  --red: #e06c75;
+  --yellow: #e5c07b;
+}
+
+.oneLight {
+  --background: #fafafa;
+  --currentLine: #f0f0f0;
+  --selection: #d7d7d7;
+  --foreground: #383a42;
+  --comment: #a0a1a7;
+  --cyan: #0184bc;
+  --green: #50a14f;
+  --orange: #c18401;
+  --pink: #a626a4;
+  --purple: #a626a4;
+  --red: #e45649;
+  --yellow: #9868;
+}
+
+.solarizedLight {
+  --background: #fdf6e3;
+  --currentLine: #eee8d5;
+  --selection: #eee8d5;
+  --foreground: #657b83;
+  --comment: #93a1a1;
+  --cyan: #2aa198;
+  --green: #859900;
+  --orange: #cb4b16;
+  --pink: #d33682;
+  --purple: #6c71c4;
+  --red: #dc322f;
+  --yellow: #b58900;
+}
