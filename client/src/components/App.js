@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import TypingGame from "./TypingGame";
 import Header from "./Header";
 import { SettingsContext } from "../contexts/SettingsContext";
+import { importTheme } from "../utils";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -30,13 +31,7 @@ function App() {
           .then((response) => response.json())
           .then((settingsData) => {
             setSettings(settingsData);
-
-            import(`../styles/${settingsData.theme}.css`).catch((error) => {
-              console.error(
-                `Error loading theme: ${settingsData.theme}`,
-                error,
-              );
-            });
+            importTheme(settingsData.theme);
           })
           .catch((error) => {
             console.error(error);
