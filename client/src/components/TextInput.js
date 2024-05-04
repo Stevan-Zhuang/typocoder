@@ -15,7 +15,7 @@ function TextInput({ value, onChange, onKeyPress, expectedText }) {
       onChange={onChange}
       onKeyPress={onKeyPress}
       placeholder={expectedText}
-      style={{ color, "border-color": color }}
+      style={{ color, borderColor: color }}
     />
   );
 }
