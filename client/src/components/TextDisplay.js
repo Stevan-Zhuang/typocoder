@@ -7,6 +7,7 @@ import {
   oneDark,
 } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { SettingsContext } from "../contexts/SettingsContext";
+import "../styles/TextDisplay.css";
 
 const themeMap = {
   oneLight: oneLight,

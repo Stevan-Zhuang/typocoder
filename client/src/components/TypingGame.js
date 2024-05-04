@@ -38,7 +38,9 @@ function TypingGame() {
 
   return (
     <div>
-      <TextDisplay lines={currentLines} lineIndex={currentLineIndex} />
+      <div style={{ height: "400px", overflow: "auto" }}>
+        <TextDisplay lines={currentLines} lineIndex={currentLineIndex} />
+      </div>
       <TextInput
         value={userInput}
         onChange={handleInputChange}

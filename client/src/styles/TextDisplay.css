@@ -1,0 +1,5 @@
+.syntaxHighlighterContainer {
+  display: flex;
+  flex: 1;
+  overflow: auto;
+}
