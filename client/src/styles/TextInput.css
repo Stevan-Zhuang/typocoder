@@ -3,7 +3,7 @@
   font-size: 16px;
   font-family: monospace;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid;
   border-radius: 4px;
   width: 100%;
   box-sizing: border-box;
@@ -12,10 +12,5 @@
 }
 
 .textInput:focus {
-  border-color: var(--cyan);
   outline: none;
-}
-
-.textInput[style*="color: var(--red)"] {
-  border-color: var(--red);
 }

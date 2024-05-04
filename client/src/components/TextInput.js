@@ -1,11 +1,13 @@
-import React from 'react';
-import '../styles/TextInput.css';
+import React from "react";
+import "../styles/TextInput.css";
 
 function TextInput({ value, onChange, onKeyPress, expectedText }) {
-  const style = {
-    color: expectedText.startsWith(value) ? 'var(--foreground)' : 'var(--red)'
-  };
-
+  let color = "var(--red)";
+  if (expectedText === value && value !== "") {
+    color = "var(--green)";
+  } else if (expectedText.startsWith(value)) {
+    color = "var(--foreground)";
+  }
   return (
     <input
       className="textInput"
@@ -13,7 +15,7 @@ function TextInput({ value, onChange, onKeyPress, expectedText }) {
       onChange={onChange}
       onKeyPress={onKeyPress}
       placeholder={expectedText}
-      style={style}
+      style={{ color, "border-color": color }}
     />
   );
 }
