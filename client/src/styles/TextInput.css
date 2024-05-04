@@ -7,7 +7,6 @@
   width: 97%;
   box-sizing: border-box;
   display: inline-block;
-  transition: border-color 0.3s ease;
 }
 
 .textInput:focus {
