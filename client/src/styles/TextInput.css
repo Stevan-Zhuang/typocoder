@@ -1,13 +1,12 @@
 .textInput {
-  background-color: var(--background);
+  background-color: var(--currentLine);
   font-size: 16px;
   font-family: monospace;
   padding: 10px;
   border: 1px solid;
-  border-radius: 4px;
-  width: 100%;
+  width: 97%;
   box-sizing: border-box;
-  margin-bottom: 10px;
+  display: inline-block;
   transition: border-color 0.3s ease;
 }
 

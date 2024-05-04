@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TextDisplay from "./TextDisplay";
 import TextInput from "./TextInput";
+import "../styles/TypingGame.css"
 
 function TypingGame() {
   const [currentLines, setCurrentLines] = useState(getCodeLines());
@@ -37,7 +38,7 @@ function TypingGame() {
   }
 
   return (
-    <div>
+    <div className="typingGame">
       <div style={{ height: "400px", overflow: "auto" }}>
         <TextDisplay lines={currentLines} lineIndex={currentLineIndex} />
       </div>
