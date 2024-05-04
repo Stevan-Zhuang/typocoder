@@ -1,11 +1,8 @@
 import React from "react";
+import "../styles/UserDisplay.css";
 
 function UserDisplay({ user }) {
-  return (
-    <div>
-      <h2>{user ? user.name : "Guest"}</h2>
-    </div>
-  );
+  return <h3 className="userDisplay">{user ? user.name : "Guest"}</h3>;
 }
 
 export default UserDisplay;

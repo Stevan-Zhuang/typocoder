@@ -8,8 +8,10 @@ import "../styles/Header.css";
 function Header({ user, setSettings }) {
   return (
     <header className="header">
-      <UserDisplay user={user} />
-      {user ? <SignOutButton /> : <SignInButton />}
+      <div className="userProfile">
+        <UserDisplay user={user} />
+        {user ? <SignOutButton /> : <SignInButton />}
+      </div>
       <SettingsPopup setSettings={setSettings} />
     </header>
   );
