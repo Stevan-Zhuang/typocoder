@@ -15,7 +15,7 @@ function SignOutButton() {
       .catch((error) => console.error("An error occurred:", error));
   }
 
-  return <button onClick={handleSignOut}>Sign out</button>;
+  return <button onClick={handleSignOut} className="signOutButton">Sign out</button>;
 }
 
 export default SignOutButton;

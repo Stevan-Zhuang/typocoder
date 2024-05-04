@@ -5,7 +5,7 @@ function SignInButton() {
     window.location.href = process.env.REACT_APP_BACKEND_URL + "/auth/google";
   }
 
-  return <button onClick={handleSignIn}>Sign in with Google</button>;
+  return <button onClick={handleSignIn} className="signInButton">Sign in</button>;
 }
 
 export default SignInButton;
