@@ -28,7 +28,7 @@ function TextDisplay({ lines, lineIndex }) {
     return { style };
   };
 
-  const codeString = lines.join("\n");
+  const codeString = lines.slice(lineIndex).join("\n");
 
   return (
     <div className="syntaxHighlighterContainer">
@@ -37,6 +37,7 @@ function TextDisplay({ lines, lineIndex }) {
         style={theme}
         customStyle={{ width: "100%" }}
         showLineNumbers={true}
+        startingLineNumber={lineIndex + 1}
         wrapLines
         lineProps={lineProps}
       >
