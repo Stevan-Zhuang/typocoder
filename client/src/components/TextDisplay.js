@@ -19,16 +19,25 @@ function TextDisplay({ lines, lineIndex }) {
   const settings = useContext(SettingsContext);
   const theme = themeMap[settings.theme] || themeMap.light;
 
-  const codeString = lines
-    .map((line, index) => (index < lineIndex ? "// " + line : line))
-    .join("\n");
+  const lineProps = (lineNumber) => {
+    let style = { display: "block" };
+    if (lineNumber === lineIndex + 1) {
+      style.backgroundColor = "var(--currentLine)";
+    }
+    return { style };
+  };
+
+  const codeString = lines.join("\n");
 
   return (
-    <div style={{ fontFamily: "monospace" }}>
+    <div className="syntaxHighlighterContainer">
       <SyntaxHighlighter
         language="javascript"
         style={theme}
+        customStyle={{ width: "100%" }}
         showLineNumbers={true}
+        wrapLines
+        lineProps={lineProps}
       >
         {codeString}
       </SyntaxHighlighter>
