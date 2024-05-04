@@ -7,7 +7,7 @@ import { importTheme } from "../utils";
 function App() {
   const [user, setUser] = useState(null);
   const [settings, setSettings] = useState({});
-  const [loading, setLoading] = useState(true); // Add this line
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(process.env.REACT_APP_BACKEND_URL + "/auth/session", {
