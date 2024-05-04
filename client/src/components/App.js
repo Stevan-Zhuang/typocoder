@@ -7,6 +7,7 @@ import { importTheme } from "../utils";
 function App() {
   const [user, setUser] = useState(null);
   const [settings, setSettings] = useState({});
+  const [loading, setLoading] = useState(true); // Add this line
 
   useEffect(() => {
     fetch(process.env.REACT_APP_BACKEND_URL + "/auth/session", {
@@ -32,6 +33,7 @@ function App() {
           .then((settingsData) => {
             setSettings(settingsData);
             importTheme(settingsData.theme);
+            setLoading(false);
           })
           .catch((error) => {
             console.error(error);
@@ -41,6 +43,10 @@ function App() {
         console.error(error);
       });
   }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <SettingsContext.Provider value={settings}>
