@@ -38,9 +38,9 @@ function SettingsPopup({ setSettings }) {
 
   return (
     <div>
-      <FaCog className="settings-icon" onClick={togglePopup} />
+      <FaCog className="settingsIcon" onClick={togglePopup} />
       {isOpen && (
-        <div className="settings-popup">
+        <div className="settingsPopup">
           <form>
             <label>
               Theme:

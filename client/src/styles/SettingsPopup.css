@@ -1,8 +1,8 @@
-.settings-icon {
+.settingsIcon {
   cursor: pointer;
 }
 
-.settings-popup {
+.settingsPopup {
   position: fixed;
   top: 0;
   right: 0;
