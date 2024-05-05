@@ -13,6 +13,13 @@ function fetchData(endpoint, params, cb) {
     });
 }
 
+function parseLines(text) {
+  if (text[0].startsWith("```") && text[text.length - 1].endsWith("```")) {
+    text = text.slice(1, text.length - 1);
+  }
+  return text.split("\n");
+}
+
 function App() {
   const [user, setUser] = useState(null);
   const [settings, setSettings] = useState({});
@@ -23,7 +30,7 @@ function App() {
   useEffect(() => {
     const getNextLines = (language) => {
       fetchData("/openai/" + language, {}, (linesData) => {
-        setNextLines(linesData.text.split("\n"));
+        setNextLines(parseLines(linesData.text));
       });
     };
     const getCurrentLines = (language) => {
@@ -60,7 +67,7 @@ function App() {
   const cycleNextLines = () => {
     setCurrentLines(nextLines);
     fetchData("/openai/" + settings.language, {}, (linesData) => {
-      setNextLines(linesData.text.split("\n"));
+      setNextLines(parseLines(linesData.text));
     });
   };
 
