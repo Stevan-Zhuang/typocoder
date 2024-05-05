@@ -9,12 +9,12 @@ const UserSettingsSchema = new Schema({
   },
   theme: {
     type: String,
-    default: "light",
+    default: "oneLight",
     required: true,
   },
   language: {
     type: String,
-    default: "en",
+    default: "python",
     required: true,
   },
 });
