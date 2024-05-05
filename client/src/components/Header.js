@@ -15,9 +15,9 @@ function Header({ user, setSettings }) {
         TypoCoder
       </button>
       <div className="userProfile">
-        <SettingsPopup setSettings={setSettings} />
         <UserDisplay user={user} />
         {user ? <SignOutButton /> : <SignInButton />}
+        <SettingsPopup setSettings={setSettings} />
       </div>
     </header>
   );

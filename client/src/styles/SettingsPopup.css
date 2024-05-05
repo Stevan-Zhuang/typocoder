@@ -1,11 +1,16 @@
 .settingsIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--foreground);
   cursor: pointer;
-  width: 100%;
+  width: calc(100% - 16px);
   height: 100%;
-  margin: 0;
-  padding: 0;
-  border: none;
+  margin: 0 8px;
+  padding: 3px;
+  border: 2px solid var(--foreground);
+  border-radius: 50%;
+  box-sizing: border-box;
 }
 
 .dimOverlay {
