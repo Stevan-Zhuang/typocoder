@@ -51,6 +51,8 @@ function SettingsPopup({ setSettings }) {
               >
                 <option value="oneLight">Light</option>
                 <option value="oneDark">Dark</option>
+                <option value="solarizedLight">Solarized Light</option>"
+                <option value="dracula">Dracula</option>
               </select>
             </label>
           </form>
