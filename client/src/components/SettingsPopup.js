@@ -55,6 +55,9 @@ function SettingsPopup({ setSettings }) {
                   <option value="oneDark">Dark</option>
                   <option value="solarizedLight">Solarized Light</option>"
                   <option value="dracula">Dracula</option>
+                  <option value="nord">Nord</option>
+                  <option value="vscDarkPlus">Visual Studio Code Dark+</option>
+                  <option value="atomDark">Atom Dark</option>
                 </select>
               </label>
             </form>

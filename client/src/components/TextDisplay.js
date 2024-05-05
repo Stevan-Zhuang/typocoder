@@ -5,15 +5,21 @@ import {
   solarizedlight,
   oneLight,
   oneDark,
+  nord,
+  vscDarkPlus,
+  atomDark,
 } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { SettingsContext } from "../contexts/SettingsContext";
 import "../styles/TextDisplay.css";
 
 const themeMap = {
-  oneLight: oneLight,
-  oneDark: oneDark,
-  solarizedLight: solarizedlight,
-  dracula: dracula,
+  oneLight,
+  oneDark,
+  solarizedlight,
+  dracula,
+  nord,
+  vscDarkPlus,
+  atomDark,
 };
 
 function TextDisplay({ lines, lineIndex }) {

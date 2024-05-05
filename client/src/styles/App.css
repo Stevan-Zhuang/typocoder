@@ -58,6 +58,51 @@
   --yellow: #b58900;
 }
 
+.nord {
+  --background: #2e3440;
+  --currentLine: #3b4252;
+  --selection: #434c5e;
+  --foreground: #d8dee9;
+  --comment: #4c566a;
+  --cyan: #88c0d0;
+  --green: #a3be8c;
+  --orange: #d08770;
+  --pink: #b48ead;
+  --purple: #81a1c1;
+  --red: #bf616a;
+  --yellow: #ebcb8b;
+}
+
+.vscDarkPlus {
+  --background: #1e1e1e;
+  --currentLine: #2d2d30;
+  --selection: #3c3d41;
+  --foreground: #d4d4d4;
+  --comment: #6a9955;
+  --cyan: #4ec9b0;
+  --green: #b5cea8;
+  --orange: #ce9178;
+  --pink: #c586c0;
+  --purple: #b180d7;
+  --red: #f44747;
+  --yellow: #d7ba7d;
+}
+
+.atomDark {
+  --background: #1e2127;
+  --currentLine: #282c34;
+  --selection: #3B4048;
+  --foreground: #abb2bf;
+  --comment: #5c6370;
+  --cyan: #56b6c2;
+  --green: #98c379;
+  --orange: #d19a66;
+  --pink: #e06c75;
+  --purple: #c678dd;
+  --red: #e06c75;
+  --yellow: #e5c07b;
+}
+
 .App {
   background-color: var(--background);
   height: 100vh;
