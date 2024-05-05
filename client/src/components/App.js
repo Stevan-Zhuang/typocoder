@@ -14,10 +14,11 @@ function fetchData(endpoint, params, cb) {
 }
 
 function parseLines(text) {
+  text = text.split("\n");
   if (text[0].startsWith("```") && text[text.length - 1].endsWith("```")) {
-    text = text.slice(1, text.length - 1);
+    return text.slice(1, text.length - 1);
   }
-  return text.split("\n");
+  return text;
 }
 
 function App() {
