@@ -40,23 +40,26 @@ function SettingsPopup({ setSettings }) {
     <div>
       <FaCog className="settingsIcon" onClick={togglePopup} />
       {isOpen && (
-        <div className="settingsPopup">
-          <form>
-            <label>
-              Theme:
-              <select
-                name="theme"
-                value={settings.theme}
-                onChange={handleInputChange}
-              >
-                <option value="oneLight">Light</option>
-                <option value="oneDark">Dark</option>
-                <option value="solarizedLight">Solarized Light</option>"
-                <option value="dracula">Dracula</option>
-              </select>
-            </label>
-          </form>
-        </div>
+        <>
+          <div className="dimOverlay" onClick={togglePopup}></div>
+          <div className="settingsPopup">
+            <form>
+              <label>
+                Theme:
+                <select
+                  name="theme"
+                  value={settings.theme}
+                  onChange={handleInputChange}
+                >
+                  <option value="oneLight">Light</option>
+                  <option value="oneDark">Dark</option>
+                  <option value="solarizedLight">Solarized Light</option>"
+                  <option value="dracula">Dracula</option>
+                </select>
+              </label>
+            </form>
+          </div>
+        </>
       )}
     </div>
   );
