@@ -53,17 +53,6 @@ function SettingsPopup({ setSettings }) {
                 <option value="oneDark">Dark</option>
               </select>
             </label>
-            <label>
-              Language:
-              <select
-                name="language"
-                value={settings.language}
-                onChange={handleInputChange}
-              >
-                <option value="en">English</option>
-                <option value="es">Spanish</option>
-              </select>
-            </label>
           </form>
         </div>
       )}
