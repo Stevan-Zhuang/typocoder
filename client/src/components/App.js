@@ -14,7 +14,7 @@ function fetchData(endpoint, params, cb) {
 }
 
 function parseLines(text) {
-  text = text.split("\n");
+  text = text.trim().split("\n");
   if (text[0].startsWith("```") && text[text.length - 1].endsWith("```")) {
     return text.slice(1, text.length - 1);
   }
