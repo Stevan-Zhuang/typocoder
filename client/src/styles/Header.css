@@ -4,6 +4,23 @@
   background-color: var(--currentLine);
 }
 
+.siteTitle {
+  background-color: transparent;
+  color: var(--purple);
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font: monospace;
+  font-size: 20px;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+
+.siteTitle:hover {
+  color: var(--foreground);
+}
+
 .userProfile {
   display: flex;
   align-items: center;
