@@ -46,7 +46,3 @@
 .signInButton:hover, .signOutButton:hover {
   background-color: var(--foreground);
 }
-
-.settingsPopup {
-  align-self: flex-start;
-}
