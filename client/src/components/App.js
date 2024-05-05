@@ -4,44 +4,65 @@ import Header from "./Header";
 import { SettingsContext } from "../contexts/SettingsContext";
 import "../styles/App.css";
 
+function fetchData(endpoint, params, cb) {
+  fetch(process.env.REACT_APP_BACKEND_URL + endpoint, params)
+    .then((response) => response.json())
+    .then((data) => cb(data))
+    .catch((error) => {
+      console.error(error);
+    });
+}
+
 function App() {
   const [user, setUser] = useState(null);
   const [settings, setSettings] = useState({});
+  const [currentLines, setCurrentLines] = useState("");
+  const [nextLines, setNextLines] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(process.env.REACT_APP_BACKEND_URL + "/auth/session", {
-      credentials: "include",
-    })
-      .then((response) => response.json())
-      .then((userData) => {
+    const getNextLines = (language) => {
+      fetchData("/openai/" + language, {}, (linesData) => {
+        setNextLines(linesData.text.split("\n"));
+      });
+    };
+    const getCurrentLines = (language) => {
+      fetchData("/openai/" + language, {}, (linesData) => {
+        setCurrentLines(linesData.text.split("\n"));
+        setLoading(false);
+      });
+    };
+    const getSettings = (id) => {
+      fetchData(
+        "/settings/" + id,
+        { credentials: "include" },
+        (settingsData) => {
+          setSettings(settingsData);
+          getCurrentLines(settingsData.language);
+          getNextLines(settingsData.language);
+        },
+      );
+    };
+    const getUser = () => {
+      fetchData("/auth/session", { credentials: "include" }, (userData) => {
         if (!userData._id) {
           setUser(null);
+          getSettings("default");
         } else {
           setUser(userData);
+          getSettings(userData._id);
         }
-
-        fetch(
-          process.env.REACT_APP_BACKEND_URL +
-          "/settings/" +
-          (userData._id || "default"),
-          {
-            credentials: "include",
-          },
-        )
-          .then((response) => response.json())
-          .then((settingsData) => {
-            setSettings(settingsData);
-            setLoading(false);
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      })
-      .catch((error) => {
-        console.error(error);
       });
+    };
+    getUser();
   }, []);
+
+  const cycleNextLines = () => {
+    setCurrentLines(nextLines);
+    fetchData("/openai/" + settings.language, {}, (linesData) => {
+      setNextLines(linesData.lines);
+    });
+  };
 
   if (loading) {
     return <div>Loading...</div>;
@@ -51,7 +72,10 @@ function App() {
     <div className={`App ${settings.theme}`}>
       <SettingsContext.Provider value={settings}>
         <Header user={user} setSettings={setSettings} />
-        <TypingGame />
+        <TypingGame
+          currentLines={currentLines}
+          cycleNextLines={cycleNextLines}
+        />
       </SettingsContext.Provider>
     </div>
   );

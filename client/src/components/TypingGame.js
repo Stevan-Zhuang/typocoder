@@ -1,20 +1,11 @@
 import React, { useState } from "react";
 import TextDisplay from "./TextDisplay";
 import TextInput from "./TextInput";
-import "../styles/TypingGame.css"
+import "../styles/TypingGame.css";
 
-function TypingGame() {
-  const [currentLines, setCurrentLines] = useState(getCodeLines());
-  const [nextLines, setNextLines] = useState(getCodeLines());
+function TypingGame({ currentLines, cycleNextLines }) {
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [userInput, setUserInput] = useState("");
-
-  function getCodeLines() {
-    // TODO: remove hardcoded lines
-    const lines =
-      "let x = 5;\nconsole.log(x);\nlet y = 10;\nconsole.log(y);\nlet z = x + y;\nconsole.log(z);";
-    return lines.split("\n");
-  }
 
   function handleInputChange(event) {
     setUserInput(event.target.value);
@@ -30,8 +21,7 @@ function TypingGame() {
     if (currentLineIndex < currentLines.length - 1) {
       setCurrentLineIndex(currentLineIndex + 1);
     } else {
-      setCurrentLines(nextLines);
-      setNextLines(getCodeLines());
+      cycleNextLines();
       setCurrentLineIndex(0);
     }
     setUserInput("");
