@@ -60,7 +60,7 @@ function App() {
   const cycleNextLines = () => {
     setCurrentLines(nextLines);
     fetchData("/openai/" + settings.language, {}, (linesData) => {
-      setNextLines(linesData.lines);
+      setNextLines(linesData.text.split("\n"));
     });
   };
 
