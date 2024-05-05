@@ -18,7 +18,7 @@ const themeMap = {
 
 function TextDisplay({ lines, lineIndex }) {
   const settings = useContext(SettingsContext);
-  const theme = themeMap[settings.theme] || themeMap.light;
+  const theme = themeMap[settings.theme];
 
   const lineProps = (lineNumber) => {
     let style = { display: "block" };
