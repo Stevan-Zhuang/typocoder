@@ -39,7 +39,7 @@ function TextDisplay({ lines, lineIndex }) {
   return (
     <div className="syntaxHighlighterContainer">
       <SyntaxHighlighter
-        language="javascript"
+        language={settings.language}
         style={theme}
         customStyle={{ width: "100%" }}
         showLineNumbers={true}
