@@ -11,9 +11,11 @@ function Header({ user, setSettings }) {
   };
   return (
     <header className="header">
-      <button onClick={reloadPage} className="siteTitle">TypoCoder</button>
-      <SettingsPopup setSettings={setSettings} />
+      <button onClick={reloadPage} className="siteTitle">
+        TypoCoder
+      </button>
       <div className="userProfile">
+        <SettingsPopup setSettings={setSettings} />
         <UserDisplay user={user} />
         {user ? <SignOutButton /> : <SignInButton />}
       </div>
