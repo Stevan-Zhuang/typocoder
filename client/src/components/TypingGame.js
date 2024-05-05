@@ -11,6 +11,13 @@ function TypingGame({ currentLines, cycleNextLines }) {
     setUserInput(event.target.value);
   }
 
+  function handleKeyDown(event) {
+    if (event.key === "Tab") {
+      event.preventDefault();
+      setUserInput((prevUserInput) => prevUserInput + " ".repeat(4));
+    }
+  }
+
   function handleKeyPress(event) {
     if (event.key === "Enter" && userInput === currentLines[currentLineIndex]) {
       completeLine();
@@ -35,6 +42,7 @@ function TypingGame({ currentLines, cycleNextLines }) {
       <TextInput
         value={userInput}
         onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
         onKeyPress={handleKeyPress}
         expectedText={currentLines[currentLineIndex]}
       />
