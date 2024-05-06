@@ -2,6 +2,7 @@ const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const User = require("../models/User");
 const UserSettings = require("../models/UserSettings");
+const UserStats = require("../models/UserStats");
 const defaultSettings = require("./defaultSettings");
 
 const setupPassport = (app) => {
@@ -37,6 +38,11 @@ const setupPassport = (app) => {
               ...defaultSettings,
             });
             await userSettings.save();
+
+            const userStats = new UserStats({
+              userId: user._id,
+            });
+            await userStats.save();
           }
           return cb(null, user);
         } catch (err) {

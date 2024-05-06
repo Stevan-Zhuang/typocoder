@@ -1,11 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import TextDisplay from "./TextDisplay";
 import TextInput from "./TextInput";
 import "../styles/TypingGame.css";
 
-function TypingGame({ currentLines, cycleNextLines }) {
+function TypingGame({ currentLines, cycleNextLines, updateStats }) {
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [userInput, setUserInput] = useState("");
+  const [timer, setTimer] = useState(0);
+  const [gameStarted, setGameStarted] = useState(false);
+  const intervalRef = useRef();
+
+  const countSecond = () => {
+    setTimer((prevTimer) => prevTimer + 1);
+  };
+  useEffect(() => {
+    if (gameStarted) {
+      intervalRef.current = setInterval(countSecond, 1000);
+    } else if (!gameStarted && timer !== 0) {
+      clearInterval(intervalRef.current);
+    }
+    return () => clearInterval(intervalRef.current);
+  }, [gameStarted, timer]);
 
   function handleInputChange(event) {
     setUserInput(event.target.value);
@@ -19,6 +34,9 @@ function TypingGame({ currentLines, cycleNextLines }) {
   }
 
   function handleKeyPress(event) {
+    if (!gameStarted) {
+      setGameStarted(true);
+    }
     if (event.key === "Enter" && userInput === currentLines[currentLineIndex]) {
       completeLine();
     }
@@ -28,8 +46,10 @@ function TypingGame({ currentLines, cycleNextLines }) {
     if (currentLineIndex < currentLines.length - 1) {
       setCurrentLineIndex(currentLineIndex + 1);
     } else {
+      updateStats(currentLines.length, timer);
       cycleNextLines();
       setCurrentLineIndex(0);
+      setGameStarted(false);
     }
     setUserInput("");
   }
