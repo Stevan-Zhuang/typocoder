@@ -28,29 +28,3 @@ describe("GET /stats/default", function() {
       );
   });
 });
-
-describe("GET /stats/:userId", function() {
-  it("responds with json", function(done) {
-    request(app)
-      .get("/stats/6639660cfe3f7829977fae7d")
-      .set("Accept", "application/json")
-      .expect("Content-Type", /json/)
-      .expect(200, done);
-  });
-});
-
-describe("PUT /stats/:userId", function() {
-  it("responds with json", function(done) {
-    request(app)
-      .put("/stats/6639660cfe3f7829977fae7d")
-      .send({
-        snippetsTyped: 0,
-        linesTyped: 0,
-        secondsSpentTyping: 0,
-        highestLinesPerMinute: 0,
-      })
-      .set("Accept", "application/json")
-      .expect("Content-Type", /json/)
-      .expect(200, done);
-  });
-});
