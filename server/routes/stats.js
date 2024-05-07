@@ -7,7 +7,7 @@ router.get("/default", (req, res) => {
     snippetsTyped: 0,
     linesTyped: 0,
     secondsSpentTyping: 0,
-    averageLinesPerMinute: 0,
+    highestLinesPerMinute: 0,
   });
 });
 
