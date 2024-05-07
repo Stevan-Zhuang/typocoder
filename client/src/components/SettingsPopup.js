@@ -47,7 +47,7 @@ function SettingsPopup({ setSettings }) {
               <label>
                 Language:
                 <select
-                  name="theme"
+                  name="language"
                   value={settings.language}
                   onChange={handleInputChange}
                 >
