@@ -5,7 +5,7 @@ import UserDisplay from "./UserDisplay";
 import SettingsPopup from "./SettingsPopup";
 import "../styles/Header.css";
 
-function Header({ user, setSettings }) {
+function Header({ user, stats, setSettings }) {
   const reloadPage = () => {
     window.location.reload();
   };
@@ -15,7 +15,7 @@ function Header({ user, setSettings }) {
         TypoCoder
       </button>
       <div className="userProfile">
-        <UserDisplay user={user} />
+        <UserDisplay user={user} stats={stats} />
         {user ? <SignOutButton /> : <SignInButton />}
         <SettingsPopup setSettings={setSettings} />
       </div>

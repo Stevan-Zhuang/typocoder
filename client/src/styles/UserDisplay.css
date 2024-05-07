@@ -1,3 +1,7 @@
+.userDisplayContainer {
+  position: relative;
+}
+
 .userDisplay {
   color: var(--foreground);
   font-size: 16px;
@@ -5,4 +9,33 @@
   text-align: center;
   padding: 0px 10px;
   margin: 12px 2px;
+}
+
+.userDisplay:hover {
+  text-decoration: underline;
+}
+
+.userStats {
+  position: absolute;
+  top: 45px;
+  right: 0px;
+  width: auto;
+  padding: 15px 20px;
+  border-radius: 10px;
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+.userStats h3 {
+  margin: 5px 5px;
+}
+
+.statRow {
+  display: flex;
+  justify-content: space-between;
+  white-space: nowrap;
+}
+
+.statRow p {
+  margin: 5px 5px;
 }
