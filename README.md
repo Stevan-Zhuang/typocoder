@@ -1,6 +1,6 @@
-# Typocoder
+# TypoCoder
 
-Typocoder is a typing game for developers. It helps improve your typing speed while also helping you get familiar with various programming languages. It is a full-stack application that uses React for the frontend, Node.js for the backend, and MongoDB for the database. It uses OpenAI's GPT-3 model to generate code snippets for a typing game.
+TypoCoder is a typing game for developers. It helps improve your typing speed while also helping you get familiar with various programming languages. It is a full-stack application that uses React for the frontend, Node.js for the backend, and MongoDB for the database. It uses OpenAI's GPT-3 model to generate code snippets.
 
 ## Installation
 
