@@ -3,7 +3,7 @@ import "../styles/TextInput.css";
 
 function TextInput({ value, onChange, onKeyDown, onKeyPress, expectedText }) {
   let color = "var(--red)";
-  if (expectedText === value && value !== "") {
+  if (expectedText === value) {
     color = "var(--green)";
   } else if (expectedText.startsWith(value)) {
     color = "var(--foreground)";
