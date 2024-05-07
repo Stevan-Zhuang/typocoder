@@ -45,6 +45,18 @@ function SettingsPopup({ setSettings }) {
           <div className="settingsPopup">
             <form>
               <label>
+                Language:
+                <select
+                  name="theme"
+                  value={settings.language}
+                  onChange={handleInputChange}
+                >
+                  <option value="python">Python</option>
+                </select>
+              </label>
+            </form>
+            <form>
+              <label>
                 Theme:
                 <select
                   name="theme"

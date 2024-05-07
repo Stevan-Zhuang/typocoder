@@ -37,3 +37,26 @@
   transform: translateY(-50%);
   z-index: 1000;
 }
+
+.settingsPopup select {
+  background-color: var(--background);
+  color: var(--foreground);
+  width: 100%;
+  margin: 20px 0px;
+  padding: 10px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  border-radius: 4px;
+  border: 1px solid var(--selection);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  appearance: none;
+  margin-top: 10px;
+}
+
+.settingsPopup select option {
+  padding: 10px;
+}
+
+.settingsPopup select option:hover {
+  background-color: var(--background);
+}
