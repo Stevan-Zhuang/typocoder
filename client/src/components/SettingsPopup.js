@@ -52,6 +52,16 @@ function SettingsPopup({ setSettings }) {
                   onChange={handleInputChange}
                 >
                   <option value="python">Python</option>
+                  <option value="javascript">JavaScript</option>
+                  <option value="java">Java</option>
+                  <option value="csharp">C#</option>
+                  <option value="cpp">C++</option>
+                  <option value="ruby">Ruby</option>
+                  <option value="php">PHP</option>
+                  <option value="swift">Swift</option>
+                  <option value="kotlin">Kotlin</option>
+                  <option value="go">Go</option>
+                  <option value="rust">Rust</option>
                 </select>
               </label>
             </form>
