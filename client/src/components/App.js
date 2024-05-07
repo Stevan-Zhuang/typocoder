@@ -14,7 +14,7 @@ function requestData(endpoint, params, cb) {
 }
 
 function parseLines(text) {
-  const textLines = text.trim().split("\n");
+  const textLines = text.trim().split("\n").map(line => line.trimEnd());
   if (
     textLines[0].startsWith("```") &&
     textLines[textLines.length - 1].endsWith("```")
