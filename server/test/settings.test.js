@@ -1,12 +1,9 @@
 const request = require("supertest");
 const express = require("express");
 const settingsRouter = require("../routes/settings");
-const connectDB = require("../config/db");
 const defaultSettings = require("../config/defaultSettings");
 
 const app = express();
-
-connectDB();
 
 app.use(express.json());
 app.use("/settings", settingsRouter);

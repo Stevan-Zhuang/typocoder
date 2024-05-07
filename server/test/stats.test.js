@@ -1,11 +1,8 @@
 const request = require("supertest");
 const express = require("express");
 const statsRouter = require("../routes/stats");
-const connectDB = require("../config/db");
 
 const app = express();
-
-connectDB();
 
 app.use(express.json());
 app.use("/stats", statsRouter);
